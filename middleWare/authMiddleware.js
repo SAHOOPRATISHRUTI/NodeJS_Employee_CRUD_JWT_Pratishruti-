@@ -30,7 +30,7 @@ const verifyUserToken = async (req, res, next) => {
         next();
       } else {
         console.log("return from jwt verify");
-        return Responses.failResponse(
+        return Response.failResponse(
           req,
           res,
           { isInValidUser: true },
@@ -41,7 +41,7 @@ const verifyUserToken = async (req, res, next) => {
     } catch (error) {
       console.log("Errorrr", error);
       errorLog(error);
-      return Responses.failResponse(req, res, null, messages.invalidToken, 200);
+      return Response.failResponse(req, res, null, messages.invalidToken, 200);
     }
   };
 
