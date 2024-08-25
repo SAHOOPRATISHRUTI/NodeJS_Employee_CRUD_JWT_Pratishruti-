@@ -5,7 +5,7 @@ const app = express();
 const bodyparser = require('body-parser')
 const port = process.env.PORT || 1111 
 const {connectDB} = require('./dbConnection/connection')
-
+const mainRouter=require('./routers/index')
 
 
 app.use(express.json())
@@ -24,7 +24,9 @@ connectDB()
 
 app.get('/',(req,res)=>{
     res.send('Hyyy its niluuuu')
-})
+});
+
+app.use('/api', mainRouter);
 
 app.listen(port,(error)=>{
     if(error) throw error;

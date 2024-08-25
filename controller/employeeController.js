@@ -65,8 +65,25 @@ const deleteEmployee = async(req,res)=>{
     
 }
 
+ /**FUNC- TO SHOW LIST OF EMPLOYEES **/
+ const listEmployee = async (req, res) => {
+    try {
+      const result = await employeeService.listEmployee(req.body, req.query);
+      console.log(result);
+      if (result.totalCount === 0) {
+        return Responses.failResponse(req, res, null, messages.recordsNotFound, 200);
+      }
+      return Responses.successResponse(req, res, result, messages.recordsFound, 200);
+    } catch (error) {
+      console.log(error);
+      return Responses.errorResponse(req, res, error);
+    }
+  };
+
 module.exports={
     createEmployee,
     viewSinglEmployee,
-    editEmployee
+    editEmployee,
+    deleteEmployee,
+    listEmployee
 }

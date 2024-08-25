@@ -19,7 +19,7 @@ const verifyUserToken = async (req, res, next) => {
       if (token.startsWith("Bearer ")) {
         token = token.substring(7, token.length);
       }
-      const decoded = jwt.verify(token, process.env.JWT_USER_SECRET);
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
       console.log(decoded);
       const userId = decoded.userId;
       const isActiveUser = await employeeService.verifyEmployee(userId);
