@@ -40,7 +40,7 @@ const verifyUserToken = async (req, res, next) => {
       }
     } catch (error) {
       console.log("Errorrr", error);
-      errorLog(error);
+     
       return Response.failResponse(req, res, null, messages.invalidToken, 200);
     }
   };

@@ -1,6 +1,6 @@
 const Employee = require('../models/employeeModel');
 const ObjectId = require('mongoose').Types.ObjectId;
-const generateHashPassword = require('../helper/commonHelper');
+const {generateHashPassword} = require('../helper/commonHelper');
 
 // Create Employee
 const createEmployee = async (data, file) => {

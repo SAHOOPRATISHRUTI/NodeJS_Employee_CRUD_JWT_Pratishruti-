@@ -44,8 +44,8 @@ const employeeSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        enum: ['user', 'admin'],
-        default: 'user'
+        enum: ['USER', 'ADMIN'],
+        default: 'USER'
     },
     isActive : {
         type: Boolean,
